@@ -15,7 +15,8 @@ struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
     int carry = 0;
     while (p1 || p2)
     {
-        p->val = carry + p1->val + p2->val;
+        carry = (p1->val + p2->val) / 10;
+        p->val = (carry + p1->val + p2->val) % 10;
         p->next = (struct ListNode *)malloc(sizeof(struct ListNode));
         p = p->next;
         p1 = p1->next;
